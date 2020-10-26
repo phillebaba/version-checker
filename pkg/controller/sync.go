@@ -50,7 +50,7 @@ func (c *Controller) syncContainer(ctx context.Context, log *logrus.Entry, build
 	}
 
 	log = log.WithField("container", container.Name)
-	log.Debug("processing conainer image")
+	log.Debug("processing container image")
 
 	err = c.checkContainer(ctx, log, pod, container, opts)
 	// Don't re-sync, if no version found meeting search criteria
