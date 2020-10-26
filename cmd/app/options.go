@@ -19,9 +19,10 @@ import (
 const (
 	envPrefix = "VERSION_CHECKER"
 
-	envACRUsername     = "ACR_USERNAME"
-	envACRPassword     = "ACR_PASSWORD"
-	envACRRefreshToken = "ACR_REFRESH_TOKEN"
+	envACRUseEnvironment = "ACR_USE_ENVIRONMENT"
+	envACRUsername       = "ACR_USERNAME"
+	envACRPassword       = "ACR_PASSWORD"
+	envACRRefreshToken   = "ACR_REFRESH_TOKEN"
 
 	envDockerUsername = "DOCKER_USERNAME"
 	envDockerPassword = "DOCKER_PASSWORD"
@@ -110,6 +111,12 @@ func (o *Options) addAppFlags(fs *pflag.FlagSet) {
 
 func (o *Options) addAuthFlags(fs *pflag.FlagSet) {
 	/// ACR
+	fs.BoolVar(&o.Client.ACR.UseEnvironment,
+		"acr-use-environment", false,
+		fmt.Sprintf(
+			"Use environment credentials instead of username+password to authenticate (%s_%s).",
+			envPrefix, envACRUseEnvironment,
+		))
 	fs.StringVar(&o.Client.ACR.Username,
 		"acr-username", "",
 		fmt.Sprintf(

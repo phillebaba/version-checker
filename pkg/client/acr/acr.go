@@ -12,6 +12,7 @@ import (
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/adal"
+	azureauth "github.com/Azure/go-autorest/autorest/azure/auth"
 	"github.com/dgrijalva/jwt-go"
 
 	"github.com/jetstack/version-checker/pkg/api"
@@ -36,9 +37,10 @@ type acrClient struct {
 }
 
 type Options struct {
-	Username     string
-	Password     string
-	RefreshToken string
+	Username       string
+	Password       string
+	UseEnvironment bool
+	RefreshToken   string
 }
 
 type ACRAccessTokenResponse struct {
@@ -163,7 +165,9 @@ func (c *Client) getACRClient(ctx context.Context, host string) (*acrClient, err
 		err    error
 	)
 
-	if len(c.RefreshToken) > 0 {
+	if c.UseEnvironment {
+		client, err = c.getEnvironmentClient()
+	} else if len(c.RefreshToken) > 0 {
 		client, err = c.getAccessTokenClient(ctx, host)
 	} else {
 		client, err = c.getBasicAuthClient(host)
@@ -175,6 +179,21 @@ func (c *Client) getACRClient(ctx context.Context, host string) (*acrClient, err
 	c.cachedACRClient[host] = client
 
 	return client, nil
+}
+
+func (c *Client) getEnvironmentClient() (*acrClient, error) {
+	authorizer, err := azureauth.NewAuthorizerFromEnvironment()
+	if err != nil {
+		return nil, err
+	}
+
+	client := autorest.NewClientWithUserAgent(userAgent)
+	client.Authorizer = authorizer
+
+	return &acrClient{
+		Client:      &client,
+		tokenExpiry: time.Unix(1<<63-1, 0),
+	}, nil
 }
 
 func (c *Client) getBasicAuthClient(host string) (*acrClient, error) {

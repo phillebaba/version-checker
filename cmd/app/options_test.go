@@ -30,6 +30,7 @@ func TestComplete(t *testing.T) {
 				{"VERSION_CHECKER_ACR_USERNAME", "acr-username"},
 				{"VERSION_CHECKER_ACR_PASSWORD", "acr-password"},
 				{"VERSION_CHECKER_ACR_REFRESH_TOKEN", "acr-token"},
+				{"VERSION_CHECKER_ACR_USE_ENVIRONMENT", "true"},
 				{"VERSION_CHECKER_DOCKER_USERNAME", "docker-username"},
 				{"VERSION_CHECKER_DOCKER_PASSWORD", "docker-password"},
 				{"VERSION_CHECKER_DOCKER_TOKEN", "docker-token"},
@@ -45,9 +46,10 @@ func TestComplete(t *testing.T) {
 			},
 			expOptions: client.Options{
 				ACR: acr.Options{
-					Username:     "acr-username",
-					Password:     "acr-password",
-					RefreshToken: "acr-token",
+					UseEnvironment: true,
+					Username:       "acr-username",
+					Password:       "acr-password",
+					RefreshToken:   "acr-token",
 				},
 				Docker: docker.Options{
 					Username: "docker-username",
@@ -81,6 +83,7 @@ func TestComplete(t *testing.T) {
 				{"VERSION_CHECKER_SELFHOSTED_USERNAME_BAR", "bar.joshvanl"},
 				{"VERSION_CHECKER_SELFHOSTED_PASSWORD_BAR", "bar-password"},
 				{"VERSION_CHECKER_SELFHOSTED_TOKEN_BAR", "my-bar-token"},
+				{"VERSION_CHECKER_ACR_USE_ENVIRONMENT", "true"},
 				{"VERSION_CHECKER_ACR_USERNAME", "acr-username"},
 				{"VERSION_CHECKER_ACR_PASSWORD", "acr-password"},
 				{"VERSION_CHECKER_ACR_REFRESH_TOKEN", "acr-token"},
@@ -99,9 +102,10 @@ func TestComplete(t *testing.T) {
 			},
 			expOptions: client.Options{
 				ACR: acr.Options{
-					Username:     "acr-username",
-					Password:     "acr-password",
-					RefreshToken: "acr-token",
+					UseEnvironment: true,
+					Username:       "acr-username",
+					Password:       "acr-password",
+					RefreshToken:   "acr-token",
 				},
 				Docker: docker.Options{
 					Username: "docker-username",
