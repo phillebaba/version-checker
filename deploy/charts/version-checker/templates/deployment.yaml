@@ -63,6 +63,13 @@ spec:
               name: {{ $chartname }}
               key: acr.password
         {{- end }}
+        {{- if .Values.acr.useEnvironment }}
+        - name: VERSION_CHECKER_ACR_USE_ENVIRONMENT
+          valueFrom:
+            secretKeyRef:
+              name: {{ $chartname }}
+              key: acr.useEnvironment
+        {{- end }}
 
         # ECR
         {{- if .Values.ecr.accessKeyID }}

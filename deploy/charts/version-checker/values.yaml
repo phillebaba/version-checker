@@ -21,6 +21,7 @@ versionChecker:
 acr:
   username:
   password:
+  useEnvironment:
   refreshToken:
 
 docker:
