@@ -3,7 +3,7 @@ entries:
   version-checker:
   - apiVersion: v1
     appVersion: v0.2.1
-    created: "2020-10-27T10:15:34.45153683Z"
+    created: "2020-10-27T10:40:12.200181355Z"
     description: A Helm chart for version-checker
     digest: 716775983b4f34c622dc40d34305c8d1c1ec1b2007f6e502e08f9c8547760cc3
     home: https://github.com/joshvanl/verison-checker
@@ -15,7 +15,19 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: v0.2.1
-    created: "2020-10-27T10:15:34.450960628Z"
+    created: "2020-10-27T10:40:12.19963415Z"
+    description: A Helm chart for version-checker
+    digest: 75f5531c51202d3d212fab8efb230d4122030b3b7868436812de7ee3a53c42e6
+    home: https://github.com/joshvanl/verison-checker
+    maintainers:
+    - name: joshvanl
+    name: version-checker
+    urls:
+    - https://phillebaba.github.io/version-checker/version-checker-0.2.1-b2.tgz
+    version: 0.2.1-b2
+  - apiVersion: v1
+    appVersion: v0.2.1
+    created: "2020-10-27T10:40:12.199077944Z"
     description: A Helm chart for version-checker
     digest: 38cd473f14c95b0ca9b66ad6afb6b6b3d246e1abab882f271685d9d6c46b555e
     home: https://github.com/joshvanl/verison-checker
@@ -25,4 +37,4 @@ entries:
     urls:
     - https://phillebaba.github.io/version-checker/version-checker-0.2.1-b1.tgz
     version: 0.2.1-b1
-generated: "2020-10-27T10:15:34.450249426Z"
+generated: "2020-10-27T10:40:12.197847231Z"
