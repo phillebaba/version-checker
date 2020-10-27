@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  version-checker:
+  - apiVersion: v1
+    appVersion: v0.2.1
+    created: "2020-10-27T09:56:36.646467303Z"
+    description: A Helm chart for version-checker
+    digest: e21aa106e5292d2d97675752053faad29c19040c2d70ee9d3d9f8a7ffdae6b87
+    home: https://github.com/joshvanl/verison-checker
+    maintainers:
+    - name: joshvanl
+    name: version-checker
+    urls:
+    - https://phillebaba.github.io/version-checker/version-checker-0.2.1.tgz
+    version: 0.2.1
+generated: "2020-10-27T09:56:36.645651591Z"
